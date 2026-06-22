@@ -6,3 +6,4 @@ __pycache__/
 .build-deps/
 .pyinstaller-build/
 .pyinstaller-spec/
+.tools/
