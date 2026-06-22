@@ -20,9 +20,9 @@ class BirthdayTest(unittest.TestCase):
     def test_age_before_birthday(self):
         self.assertEqual(calculate_age(date(2000, 12, 10), date(2026, 6, 23)), 25)
 
-    def test_render_date_has_five_rows(self):
+    def test_render_date_has_seven_rows(self):
         result = render_date(date(2001, 2, 3))
-        self.assertEqual(len(result.splitlines()), 5)
+        self.assertEqual(len(result.splitlines()), 7)
         self.assertNotIn("0", result)
         self.assertNotIn("1", result)
 
