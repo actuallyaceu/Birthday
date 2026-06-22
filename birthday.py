@@ -1,11 +1,7 @@
-"""Учебная программа для работы с датой рождения."""
-
 import sys
 from datetime import date
 
 
-# Здесь записано, как выглядит каждая цифра на табло.
-# У каждой цифры 7 строк, ширина цифры — 5 символов.
 DIGITS = {
     "0": (
         "*****",
@@ -112,7 +108,6 @@ WEEKDAYS = (
 
 
 def get_birth_date():
-    """Спрашивает дату рождения и проверяет её."""
     while True:
         try:
             day = int(input("Введите день рождения: "))
@@ -131,13 +126,11 @@ def get_birth_date():
 
 
 def get_weekday(birth_date):
-    """Находит день недели."""
     weekday_number = birth_date.weekday()
     return WEEKDAYS[weekday_number]
 
 
 def is_leap_year(year):
-    """Проверяет, был ли год високосным."""
     if year % 400 == 0:
         return True
     if year % 100 == 0:
@@ -146,13 +139,11 @@ def is_leap_year(year):
 
 
 def calculate_age(birth_date, today=None):
-    """Считает возраст в полных годах."""
     if today is None:
         today = date.today()
 
     age = today.year - birth_date.year
 
-    # Если день рождения в этом году ещё не наступил, убираем один год.
     if (today.month, today.day) < (birth_date.month, birth_date.day):
         age = age - 1
 
@@ -160,7 +151,6 @@ def calculate_age(birth_date, today=None):
 
 
 def render_date(birth_date):
-    """Рисует дату звёздочками в формате дд мм гггг."""
     day = f"{birth_date.day:02d}"
     month = f"{birth_date.month:02d}"
     year = f"{birth_date.year:04d}"
@@ -168,7 +158,6 @@ def render_date(birth_date):
     date_parts = (day, month, year)
     result_lines = []
 
-    # Собираем табло строка за строкой.
     for row in range(7):
         ready_parts = []
 
@@ -203,6 +192,5 @@ def main():
 if __name__ == "__main__":
     main()
 
-    # Эта пауза нужна, чтобы готовый EXE не закрылся сразу.
     if getattr(sys, "frozen", False):
         input("\nНажмите Enter, чтобы выйти...")
