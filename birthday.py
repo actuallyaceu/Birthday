@@ -1,5 +1,6 @@
 """Информация о дате рождения и вывод даты в виде электронного табло."""
 
+import sys
 from datetime import date
 
 
@@ -93,3 +94,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+    if getattr(sys, "frozen", False):
+        input("\nНажмите Enter, чтобы выйти...")

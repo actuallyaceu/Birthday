@@ -3,3 +3,6 @@ __pycache__/
 .venv/
 .idea/
 .vscode/
+.build-deps/
+.pyinstaller-build/
+.pyinstaller-spec/
